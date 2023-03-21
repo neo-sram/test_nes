@@ -40,10 +40,7 @@ export class UserService {
   }
 
   getUserById(name: string) {
-    // console.log(name);
-    // return this.users.find((user) => user.name == name);
-    for (let user of this.users) {
-      if (user.name == name) return user;
-    }
+    console.log(name);
+    return this.users.find((user) => user.name == name);
   }
 }
