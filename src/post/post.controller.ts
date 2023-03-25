@@ -1,6 +1,6 @@
-import { Controller, Post, Get, Body } from '@nestjs/common';
+import { Controller, Post, Get, Body, Param } from '@nestjs/common';
 import { PostService } from './post.service';
-import { Blog } from 'src/classes/blogDto';
+import { Blog } from 'src/dtos/blogDto';
 
 @Controller('post')
 export class PostController {
@@ -11,8 +11,8 @@ export class PostController {
     this.postService.create(post);
   }
 
-  @Get()
-  async listAllBlogs(): Promise<Blog[]> {
-    return this.postService.allBlogs();
+  @Get(':id')
+  async listAllBlogs(@Param() id: number) {
+    return this.postService.listAllBlogs(id);
   }
 }
