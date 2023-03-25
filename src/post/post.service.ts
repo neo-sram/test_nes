@@ -8,8 +8,9 @@ export class PostService {
   @Inject(UserService)
   private readonly userService: UserService;
 
-  create(post: Blog, id: number) {
-    this.userService.users[id].blogs.push(post);
+  create(contente: string, id: number) {
+    const post: Blog = new Blog(id, contente);
+    this.userService.getById(id)?.blogs.push(post);
   }
 
   listAllBlogs(id: number) {
