@@ -9,7 +9,6 @@ export class UserController {
   @Post('create')
   create(@Body() user: User) {
     this.userService.create(user);
-    return;
   }
 
   @Get('all')
