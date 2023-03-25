@@ -1,15 +1,15 @@
-import { Get, Injectable } from '@nestjs/common';
+import { Get, Inject, Injectable } from '@nestjs/common';
 import { Blog } from 'src/dtos/blogDto';
 import { UserController } from 'src/user/user.controller';
 import { UserService } from 'src/user/user.service';
 
 @Injectable()
 export class PostService {
-  constructor(private userService: UserService) {}
-  private posts: Blog[] = [];
+  @Inject(UserService)
+  private readonly userService: UserService;
 
-  create(post: Blog) {
-    this.posts.push(post);
+  create(post: Blog, id: number) {
+    this.userService.users[id].blogs.push(post);
   }
 
   listAllBlogs(id: number) {

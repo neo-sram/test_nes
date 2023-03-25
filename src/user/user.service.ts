@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { writer } from 'repl';
 import { User } from 'src/dtos/userDto';
 
@@ -7,6 +7,11 @@ export class UserService {
   users: User[] = [];
 
   allUsers() {
+    return this.users;
+  }
+
+  clearAll() {
+    this.users = [];
     return this.users;
   }
 
@@ -22,10 +27,5 @@ export class UserService {
 
   create(user: User) {
     this.users.push(user);
-  }
-
-  clearAll() {
-    this.users = [];
-    return this.users;
   }
 }

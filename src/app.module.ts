@@ -8,9 +8,12 @@ import { CommentController } from './comment/comment.controller';
 import { PostController } from './post/post.controller';
 import { PostService } from './post/post.service';
 import { CommentService } from './comment/comment.service';
+import { PostModule } from './post/post.module';
+import { UserModule } from './user/user.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
-  imports: [],
+  imports: [PostModule, UserModule, CommentModule],
   controllers: [
     AppController,
     UserController,
