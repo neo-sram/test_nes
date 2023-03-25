@@ -12,8 +12,8 @@ export class PostController {
     this.postService.create(post, id);
   }
 
-  @Get(':id')
-  async listAllBlogs(@Param() id: number): Promise<Blog[]> {
+  @Get('id/:id')
+  async listAllBlogs(@Param('id') id: number): Promise<Blog[]> {
     return this.postService.listAllBlogs(id);
   }
 }

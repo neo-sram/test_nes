@@ -16,13 +16,13 @@ export class UserController {
     return this.userService.allUsers();
   }
 
-  @Get(':name')
+  @Get('name/:name')
   async getByName(@Param() name: string): Promise<any> {
     return this.userService.getByName(name);
   }
 
-  @Get(':id')
-  async getById(@Param() id: number): Promise<any> {
+  @Get('id/:id')
+  async getById(@Param('id') id: number): Promise<any> {
     return this.userService.getById(id);
   }
 

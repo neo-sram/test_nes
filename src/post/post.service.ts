@@ -13,6 +13,6 @@ export class PostService {
   }
 
   listAllBlogs(id: number) {
-    return this.userService.users[id].blogs;
+    return this.userService.getById(id)?.blogs;
   }
 }
