@@ -27,7 +27,7 @@ this API side app lets the user create blogs and comment on other users blogs
 
 - User :
 
-'''typescript
+'''javascript
  class User {
   id: number;
   name: string;
@@ -38,7 +38,7 @@ this API side app lets the user create blogs and comment on other users blogs
 
 - Blog :
 
-'''typescript
+'''javascript
 export class Blog {
   writer: number;
   content: string;
@@ -54,7 +54,7 @@ export class Blog {
 
 - Comment :
 
-'''typescript
+'''javascript
 class Commentary {
   writer?: number;
   content: string;
