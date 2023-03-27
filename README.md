@@ -27,18 +27,18 @@ this API side app lets the user create blogs and comment on other users blogs
 
 - User :
 
-'''javascript
+```javascript
  class User {
   id: number;
   name: string;
   age: number;
   blogs?: Blog[];
 }
-'''
+```
 
 - Blog :
 
-'''javascript
+```javascript
 export class Blog {
   writer: number;
   content: string;
@@ -50,11 +50,11 @@ export class Blog {
     this.comments = [];
   }
 }
-'''
+```
 
 - Comment :
 
-'''javascript
+```javascript
 class Commentary {
   writer?: number;
   content: string;
@@ -63,4 +63,4 @@ class Commentary {
     this.content = content;
   }
 }
-'''
+```
