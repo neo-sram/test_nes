@@ -4,10 +4,11 @@ import { Commentary } from './commentaryDto';
 export class Blog {
   writer: number;
   content: string;
-  commentaries?: Commentary[];
+  comments?: Commentary[];
 
   constructor(writer: number, content: string) {
     this.content = content;
     this.writer = writer;
+    this.comments = [];
   }
 }

@@ -6,5 +6,4 @@ export class User {
   name: string;
   age: number;
   blogs?: Blog[];
-  comments?: Commentary[];
 }

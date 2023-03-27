@@ -7,9 +7,9 @@ export class PostController {
   @Inject(PostService)
   private readonly postService: PostService;
 
-  @Post('postCreate/:id/:content')
-  async create(@Param('id') id: number, @Param('content') content: string) {
-    this.postService.create(content, id);
+  @Post('postCreate')
+  async create(@Body() post: Blog) {
+    this.postService.create(post);
   }
 
   @Get('getPostOf/:id')

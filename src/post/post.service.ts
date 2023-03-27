@@ -8,9 +8,19 @@ export class PostService {
   @Inject(UserService)
   private readonly userService: UserService;
 
-  create(contente: string, id: number) {
-    const post: Blog = new Blog(id, contente);
-    this.userService.getById(id)?.blogs.push(post);
+  create(post: Blog) {
+    if (!post.writer || typeof post.writer !== 'number') {
+      throw new Error(`Invalid writer ID: ${post.writer}`);
+    }
+    const user = this.userService.getById(post.writer);
+    if (!user) {
+      throw new Error(`User with ID ${post.writer} not found`);
+    }
+    if (!user.blogs) {
+      user.blogs = [];
+    }
+    user.blogs.push(post);
+    post.comments = [];
   }
 
   listAllBlogs(id: number) {
